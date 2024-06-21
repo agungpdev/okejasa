@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Pengaturan\MenuManagemen;
 use App\Http\Controllers\Pengaturan\PermissionManagemen;
 use App\Http\Controllers\Pengaturan\RoleManagemen;
@@ -20,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/',[AuthenticatedSessionController::class,'create'])->middleware('guest')->name('home');
+Route::get('/',[HomeController::class,'create']);
+Route::get('/admin',[AuthenticatedSessionController::class,'create'])->middleware('guest')->name('home');
 
 Route::name('dashboard')->prefix('dashboard')->middleware(['auth','verified'])->group(function(){
     Route::get('/',[DashboardController::class,'index']);

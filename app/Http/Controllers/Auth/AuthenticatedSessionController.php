@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
-    private $page ="Accounting";
+    private $page ="Oke Jasa";
     /**
      * Display the login view.
      */
